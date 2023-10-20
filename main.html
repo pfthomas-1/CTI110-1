@@ -1,11 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Meme Generator</title>
+    <style>
+        #meme-container {
+            text-align: center;
+        }
+        #meme-image {
+            max-width: 100%;
+        }
+        .centered-button {
+            text-align: center;
+        }
+        #balls {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    
+    <div id="meme-container">
+        <img id="meme-image" alt="Meme Image">
+        <p id="top-text"></p>
+        <p id="bottom-text"></p>
+        <p id="completion-message"></p>
+    </div>
+    <div class="centered-button">
+        <button id="generate-button">Generate Meme</button>
+    </div>
+    <script>
+        // Replace these placeholders with your actual image and text options
+        const memeImages = ['https://i.ytimg.com/vi/6jWzmvwDjiw/hqdefault.jpg', 'https://i.ytimg.com/vi/gWQ5TpFBdgw/maxresdefault.jpg', 'https://dm0qx8t0i9gc9.cloudfront.net/watermarks/image/rDtN98Qoishumwih/bored-businessman-sitting-at-the-table-over-white-background_SB_PM.jpg', 'https://th.bing.com/th?id=OIP.HcCwC0n43uNyI8wZpUuBWAHaJ4&w=298&h=204&c=12&rs=1&qlt=99&pcl=faf9f7&o=6&pid=SMRS', 'https://th.bing.com/th/id/OIP.izG-q06Q7eoQuc_69GLHAAHaEK?w=307&h=180&c=7&r=0&o=5&pid=1.7', 'https://th.bing.com/th/id/OIP.gKqnW6OXVnsIjVi9N17FfgEsCo?w=331&h=186&c=7&r=0&o=5&pid=1.7', 'https://th.bing.com/th/id/OIP.PcsRkJaUzg5FAF_iEc8HXwHaIp?w=145&h=180&c=7&r=0&o=5&pid=1.7'];
+        const topTexts = ['FNAF.. FNAF', 'ME.. ME. ME WHEN TH', 'mfw I blow up', 'the children when i explode the hospital', 'she vulump on my tuous', 'Your telling me..', '💀💀💀💀'];
+        const bottomTexts = ['SMASH OR PASS', '...', 'Your pancakes with my mind','(im dead)', '(in a non binary way)', 'AAAAAAAAAAAAAAAAAH', 'till I uuh.. bust?', '[EXTREMELY LOUD INCORRECT BUZZER]', 'A cis teen built this chapel?', '', ''];
+
+        document.getElementById('generate-button').addEventListener('click', generateMeme);
+
+        function generateMeme() {
+            const selectedImage = memeImages[Math.floor(Math.random() * memeImages.length)];
+            const selectedTopText = topTexts[Math.floor(Math.random() * topTexts.length)];
+            const selectedBottomText = bottomTexts[Math.floor(Math.random() * bottomTexts.length)];
+
+            const memeText = `${selectedTopText}\n${selectedBottomText}`;
+            const memeImage = document.getElementById('meme-image');
+            const topText = document.getElementById('top-text');
+            const bottomText = document.getElementById('bottom-text');
+            const completionMessage = document.getElementById('completion-message');
+
+            memeImage.src = selectedImage;
+            memeImage.alt = 'Generated Meme';
+            topText.innerText = selectedTopText;
+            bottomText.innerText = selectedBottomText;
+            completionMessage.innerText = 'Meme Generated Successfully';
+
+        }
+    </script>
+    <p id="balls"><b>THIS SUPER FUNNY HAHA WEBSITE WAS MADE WITH THE ASSISTANCE OF CHAT GPT</b></p>
 </body>
 </html>
